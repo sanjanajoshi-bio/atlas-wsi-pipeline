@@ -22,5 +22,13 @@ All steps are designed to be simple, inspectable, and reproducible.
 
 ![Tissue mask overlay](figures/tissue_overlay.png)
 
-![Patch grid](figures/patch_grid.png)
+![Patch grid](figures/patch_grid.png)## Project Status
+
+ATLAS currently implements a complete whole-slide image (WSI) preprocessing
+and tissue-aware patch extraction pipeline with visual quality control.
+
+Baseline supervised models (tumor vs normal) and semi-supervised
+encoder–decoder based anomaly scoring are under active development and are
+being iterated on separately from the preprocessing stack.
+
 
