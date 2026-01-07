@@ -18,3 +18,9 @@ All steps are designed to be simple, inspectable, and reproducible.
 ## Repository Structure
 
 
+![Whole-slide thumbnail](figures/slide_thumbnail.png)
+
+![Tissue mask overlay](figures/tissue_overlay.png)
+
+![Patch grid](figures/patch_grid.png)
+
