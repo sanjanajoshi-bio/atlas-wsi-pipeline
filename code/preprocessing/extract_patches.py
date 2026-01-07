@@ -4,24 +4,19 @@ import cv2
 from pathlib import Path
 from tqdm import tqdm
 
-# Parameters (you WILL tune these later)
 PATCH_SIZE = 256
-TISSUE_THRESHOLD = 0.15   # % of tissue required
+TISSUE_THRESHOLD = 0.15   
 OUTPUT_DIR = Path("data/patches")
 
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# Load slide
 slide = openslide.OpenSlide("data/wsi/sample.svs")
 
-# Load low-res mask
 mask = cv2.imread("outputs/tissue_mask_lowres.png", cv2.IMREAD_GRAYSCALE)
 
-# Use lowest resolution level for mask
 mask_level = slide.level_count - 1
 mask_w, mask_h = slide.level_dimensions[mask_level]
 
-# High-res info
 level0_w, level0_h = slide.level_dimensions[0]
 scale_x = level0_w / mask_w
 scale_y = level0_h / mask_h
@@ -44,7 +39,7 @@ for y in tqdm(range(0, mask_h, PATCH_SIZE // int(scale_y))):
         if tissue_ratio < TISSUE_THRESHOLD:
             continue
 
-        # Map to level 0 coordinates
+        
         x0 = int(x * scale_x)
         y0 = int(y * scale_y)
 
